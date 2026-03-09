@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futsal - O Esporte das Quadras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Seção principal com imagem e descrição lado a lado */
+        .main-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .main-description {
+            flex: 1;
+        }
+
+        .main-description h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .main-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .main-description .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .main-image {
+            flex: 1;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .main-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Seção de galeria */
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+
+        .gallery-section h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .caption {
+            padding: 15px;
+            text-align: center;
+            background: white;
+            font-weight: 600;
+            color: #764ba2;
+        }
+
+        /* Seção de descrição final */
+        .final-description {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .final-description h2 {
+            color: #764ba2;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        .final-description p {
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1em;
+        }
+
+        .final-description .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .main-section {
+                flex-direction: column;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <h1>⚽ FUTSAL</h1>
+            <p>Emoção, técnica e velocidade dentro das quatro linhas</p>
+        </div>
+
+        <!-- Seção principal: Imagem e descrição lado a lado -->
+        <div class="main-section">
+            <div class="main-description">
+                <h2>O que é Futsal?</h2>
+                <p>O futsal é uma modalidade esportiva derivada do futebol, jogada em quadra com times de 5 jogadores. Surgiu no Uruguai em 1934 e rapidamente se espalhou pelo mundo, conquistando milhões de praticantes e fãs.</p>
+                <p>Com regras específicas e um ritmo intenso, o futsal desenvolve habilidades técnicas apuradas, raciocínio rápido e trabalho em equipe. É considerado uma excelente escola para jogadores de futebol de campo.</p>
+                <div class="highlight">
+                    <strong>⚡ Mais de 100 países praticam futsal oficialmente</strong>
+                </div>
+            </div>
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1529903544937-b0e5f6b9fbba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jogador de futsal em ação">
+            </div>
+        </div>
+
+        <!-- Galeria de imagens -->
+        <div class="gallery-section">
+            <h2>Momentos do Futsal</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1575361204480-a03a7da4c98a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jogada de futsal">
+                    <div class="caption">⚽ Jogada ensaiada</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Goleiro de futsal">
+                    <div class="caption">🧤 Defesa espetacular</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Quadra de futsal">
+                    <div class="caption">🏟️ A quadra</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Descrição final -->
+        <div class="final-description">
+            <h2>A Importância do Futsal</h2>
+            <p>O futsal é mais que um esporte - é uma ferramenta de transformação social. Milhares de jovens ao redor do mundo encontram no futsal uma oportunidade de desenvolvimento pessoal, disciplina e realização de sonhos.</p>
+            <p>Além disso, o futsal é reconhecido por desenvolver habilidades como agilidade, visão periférica, tomada de decisão rápida e precisão nos passes. Grandes estrelas do futebol mundial, como Pelé, Messi, Cristiano Ronaldo e Neymar, creditam parte do seu sucesso à base no futsal.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">40 min</div>
+                    <div class="stat-label">Duração do jogo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Jogadores por time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20x40m</div>
+                    <div class="stat-label">Dimensões da quadra</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Futsal - Paixão que move o mundo | Imagens meramente ilustrativas</p>
+        </div>
+    </div>
+</body>
+</html>
